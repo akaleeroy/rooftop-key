@@ -12,7 +12,7 @@ bow_height = 23;
 
 bit_length = 8;
 bit_depth = 12;
-bit_thickness = 4;
+bit_thickness = 3.8;
 bit_distance_top = -7; // Distance from top end of shaft
 bit_off_axis = -0.4; // Moved towards build plate
 
