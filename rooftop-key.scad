@@ -30,7 +30,7 @@ module handle() {
   hulled()
     rod(d=bow_width, h=bit_thickness)
     align([1,0,0])
-    rod(r=shaft_radius, h=1, anchor=[-1,0,0], orientation=x);
+    rod(r=shaft_radius, h=2, anchor=[-1,0,0], orientation=x);
   translate([-bit_thickness / 2,0,0])
   rod(d=bow_width - bit_thickness, h=10, $class="cuts");
   }
