@@ -1,6 +1,6 @@
 include <relativity/relativity.scad>
 
-$fn = 64;
+$fn = 32;
 pro = 0.02; // Protrusion value for CSG ops
 
 // Shank or shaft
