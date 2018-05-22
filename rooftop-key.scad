@@ -65,7 +65,7 @@ module key() {
   align([1,0,0])
   ball(r=shaft_radius, anchor=[0,0,0])
   align([0,-1,0])
-  translate([-$parent_size.x,$parent_size.x / 2,0])
+  translate([-$parent_size.x - 1,$parent_size.x / 2,0])
   bit();
 }
 
