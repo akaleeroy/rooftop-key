@@ -16,37 +16,25 @@ bit_depth = 12;
 bit_thickness = 4;
 
 // Cuts
-/*
-       2mm
-1.4mm  4mm
-       2mm
-
-depth 2mm 2mm
-*/
 cut_shallow_width = 4;
 cut_deep_width = 1.4;
 cut_depth = 2;
 
-// Pozitie, de jos: 6, 2, 4
 ward_radius = 2 / 2;
 ward_depth = 1.5;
+// Pozitie, de jos: 6, 2, 4
 ward_pos_bottom = 6;
 
-
-module body() {
-  rod(h=shaft_length, r=shaft_radius, orientation=x)
-  align([-1,0,0])
-  // resize([0,bow_height,0])
+module handle() {
+  // TODO Differed doesn't work
+  difference() {
   hulled()
     rod(d=bow_width, h=bit_thickness)
     align([1,0,0])
     rod(r=shaft_radius, h=1, anchor=[-1,0,0], orientation=x);
-  translate([shaft_length / 2,0,0])
-  align([1,0,0])
-  ball(r=shaft_radius, anchor=[0,0,0])
-  align([0,-1,0])
-  translate([-$parent_size.x,$parent_size.x / 2,0])
-  bit();
+  translate([-bit_thickness / 2,0,0])
+  rod(d=bow_width - bit_thickness, h=10, $class="cuts");
+  }
 }
 
 module bit() {
@@ -68,5 +56,18 @@ module bit() {
     }
 }
 
+module key() {
+  rod(h=shaft_length, r=shaft_radius, orientation=x)
+  align([-1,0,0])
+  // resize([0,bow_height,0])
+  handle();
+  translate([shaft_length / 2,0,0])
+  align([1,0,0])
+  ball(r=shaft_radius, anchor=[0,0,0])
+  align([0,-1,0])
+  translate([-$parent_size.x,$parent_size.x / 2,0])
+  bit();
+}
+
 // Assembly
-body();
+key();
