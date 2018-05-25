@@ -1,6 +1,9 @@
 # OpenSCAD 3D printing
 *.stl
 
+# Production pics
+Production/
+
 # Created by https://www.gitignore.io/api/windows
 
 ### Windows ###
