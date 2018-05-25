@@ -2,8 +2,9 @@ include <relativity/relativity.scad>
 
 $fn = 32;
 
-// Shank or shaft
-shaft_radius = 6 / 2;
+// Shaft or shank
+shaft_diameter = 6;
+shaft_radius = shaft_diameter / 2;
 shaft_length = 50;
 
 // Handle or bow
@@ -28,9 +29,9 @@ ward_pos_bottom = 6;
 module handle() {
   difference() {
   hulled()
-    rod(d=bow_width, h=bit_thickness)
+    rod(d=bow_width, h=shaft_diameter)
     align([1,0,0])
-    rod(r=shaft_radius, h=2, anchor=[-1,0,0], orientation=x);
+    rod(r=shaft_radius, h=3, anchor=[-1,0,0], orientation=x);
   translate([-bit_thickness / 2,0,0])
   rod(d=bow_width - bit_thickness, h=10, $class="cuts");
   }
