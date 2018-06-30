@@ -1,0 +1,3 @@
+[submodule "relativity.scad"]
+	path = relativity
+	url = https://github.com/davidson16807/relativity.scad/
