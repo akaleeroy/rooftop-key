@@ -7,6 +7,8 @@
 
 This is a printable key for access to the **[D Block](http://wikimapia.org/17751785/ro/Corpul-D)** rooftop terrace from **Entrance 3.** Climb up the stairs to the 4th floor, it's the door right next to apartment 42.
 
+Because this is an old kind of key it can be hard to find a key copying center that can replicate it. That's why I made this repo.
+
 ## Print Settings
 
 Tested with `PLA` filament at `100% infill`.
