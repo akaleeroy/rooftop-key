@@ -1,5 +1,5 @@
 # OpenSCAD 3D printing
-*.stl
+# *.stl
 
 # Production pics
 Production/
