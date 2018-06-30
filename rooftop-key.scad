@@ -11,6 +11,7 @@ shaft_length = 50;
 bow_width = 18;
 bow_height = 23;
 
+// Bit
 bit_length = 8;
 bit_depth = 12;
 bit_thickness = 3.8;
