@@ -28,41 +28,39 @@ ward_depth = 1.5;
 ward_pos_bottom = 6;
 
 module handle() {
-  difference() {
-  hulled()
-    rod(d=bow_width, h=shaft_diameter)
-    align([1,0,0])
-    rod(r=shaft_radius, h=3, anchor=[-1,0,0], orientation=x);
-  translate([-bit_thickness / 2,0,0])
-  rod(d=bow_width - bit_thickness, h=10, $class="cuts");
-  }
+  differed("negative")
+    hulled("not(negative)")
+      rod(r=shaft_radius, h=3, anchor=[-1,0,0], orientation=x)
+      align([-1,0,0])
+      rod(d=bow_width, h=shaft_diameter)
+  rod(d=bow_width - bit_thickness, h=10, $class="negative");
 }
 
 module bit() {
-  differed("cuts")
+  differed("negative")
     // Bit body
-    box([bit_length, bit_depth + $parent_size.x / 2, bit_thickness], anchor=[0,1,0])
+    box([bit_length, bit_depth + $parent_size.x / 2, bit_thickness], anchor=y)
     // Cuts
     union() {
-      align([0,-1,0])
-      box([cut_shallow_width,cut_depth,bit_thickness], anchor=-y, $class="cuts")
-      align([0,1,0])
+      align(-y)
+      box([cut_shallow_width,cut_depth,bit_thickness], anchor=-y, $class="negative")
+      align(y)
       box([cut_deep_width,cut_depth,bit_thickness], anchor=-y);
-      align([0,0,1])
-      translate([0,-ward_radius/2,-1])
-      rod(r=ward_radius, h=bit_length, orientation=x, $class="cuts");
+      align(top)
+      translated([0,-ward_radius/2,-1])
+      rod(r=ward_radius, h=bit_length, orientation=x, $class="negative");
     }
 }
 
 module key() {
   rod(h=shaft_length, r=shaft_radius, orientation=x)
-  align([-1,0,0])
+  align(-x)
   handle();
-  translate([shaft_length / 2,0,0])
-  align([1,0,0])
-  ball(r=shaft_radius, anchor=[0,0,0])
-  align([0,-1,0])
-  translate([bit_distance_top,$parent_size.x / 2, bit_off_axis])
+  translated([shaft_length / 2,0,0])
+  align(x)
+  ball(r=shaft_radius, anchor=center)
+  align(-y)
+  translated([bit_distance_top,$parent_size.x / 2, bit_off_axis])
   bit();
 }
 
