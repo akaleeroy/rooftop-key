@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+# Requires OpenSCAD on $PATH
+
+# Automatically re-exports all changed .scad files pre-commit
+git diff --cached --name-only | grep ".scad$" | while read -r file; do
+  basename="${file%.*}"
+  echo "Exporting $file to $basename.stl..."
+  openscad -o "$basename.stl" "$file"
+done
