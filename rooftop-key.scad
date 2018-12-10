@@ -28,7 +28,7 @@ ward_depth = 1.5;
 ward_pos_bottom = 6;
 
 module handle() {
-  differed("negative")
+  differed("negative", "not(negative)")
     hulled("not(negative)")
       rod(r=shaft_radius, h=3, anchor=[-1,0,0], orientation=x)
       align([-1,0,0])
@@ -37,7 +37,7 @@ module handle() {
 }
 
 module bit() {
-  differed("negative")
+  differed("negative", "not(negative)")
     // Bit body
     box([bit_length, bit_depth + $parent_size.x / 2, bit_thickness], anchor=y)
     // Cuts
