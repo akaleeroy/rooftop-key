@@ -1,4 +1,4 @@
 [submodule "relativity"]
-	path = relativity
-	url = https://github.com/davidson16807/relativity.scad/
+  path = relativity
+  url = https://github.com/davidson16807/relativity.scad/
   shallow = true
